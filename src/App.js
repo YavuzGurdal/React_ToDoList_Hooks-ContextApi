@@ -1,42 +1,24 @@
-
+import React from 'react'
+import FormInput from './components/FormInput';
+import List from './components/List';
+import Footer from './components/Footer';
+import { DataProvider } from './components/DataProvider';
 
 function App() {
   return (
-    <div className="App">
-      <h1>ToDo List</h1>
 
-      <form autoComplete="off">
-        <input type="text" name="todos" id="todos" required placeholder="What to do?" />
-        <button type="submit">Create</button>
-      </form>
+    <DataProvider> {/* butu app i context ile sardık. */}
+      <div className="App">
+        <h1>ToDo List</h1>
 
-      <ul>
-        <li>
-          <label htmlFor="">
-            <input type="checkbox" id="" />
-            To do
-          </label>
-          <button>Edit</button>
-        </li>
-        <li>
-          <label htmlFor="" >
-            <input type="checkbox" id="" />
-            To do
-          </label>
-          <button>Edit</button>
-        </li>
-      </ul>
+        <FormInput />
 
-      <div className="row">
-        <label htmlFor="all">
-          <input type="checkbox" name="all" id="all" />
-          ALL TODOS
-        </label>
-        <p>You have 0 to do</p>
-        <button id="delete">Delete</button>
+        <List />
+
+        <Footer />
+
       </div>
-
-    </div>
+    </DataProvider>
   );
 }
 
