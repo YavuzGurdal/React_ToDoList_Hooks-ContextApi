@@ -11,17 +11,17 @@ export default function FormInput() {
         e.preventDefault();
         setTodos([...todos, { name: todoName, complete: false }]);
         setTodoName("");
-        todoInput.current.focus();
+        todoInput.current.focus(); // todoinput' a focus oluyor. useRef ile
     }
 
     useEffect(() => {
-        todoInput.current.focus(); // create inputuna focus olması icin
+        todoInput.current.focus(); // create inputuna focus olması icin. useRef ile
     }, [])
 
     return (
         <form autoComplete="off" onSubmit={addTodo}>
             <input type="text" name="todos" id="todos"
-                ref={todoInput}
+                ref={todoInput} //ref degerini bu sekilde veriyoruz              
                 required placeholder="What to do?"
                 value={todoName}
                 onChange={e => setTodoName(e.target.value.toLocaleLowerCase())}
